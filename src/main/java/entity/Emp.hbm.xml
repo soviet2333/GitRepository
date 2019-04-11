@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Emp" table="EMP" schema="SCOTT">
+        <id name="empno" column="EMPNO">
+            <generator class="assigned"/>
+        </id>
+        <property name="ename" column="ENAME"/>
+        <property name="job" column="JOB"/>
+        <property name="mgr" column="MGR"/>
+        <property name="hiredate" column="HIREDATE"/>
+        <property name="sal" column="SAL"/>
+        <property name="comm" column="COMM"/>
+        <many-to-one
+           name="dept"
+           column="deptno"
+           class="entity.Dept"
+        />
+    </class>
+</hibernate-mapping>
